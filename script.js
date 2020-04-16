@@ -4,6 +4,8 @@
 //     return a - b;
 // }
 
+const doSomething = (a, b) => a - b;
+
 // Question 2
 // Refer: lesson 2 / 4
 // Make a call to the URL below, pass the JSON it returns to a function and inside that function loop through the results and log each game's name.
@@ -11,6 +13,13 @@
 // In the catch method of your code, redirect to error.html if there is an error.
 
 // https://api.rawg.io/api/games?genres=sports
+
+const url = "https://api.rawg.io/api/games?genres=sports";
+
+fetch(url)
+    .then(function(response) {
+        console.log(response);
+    })
 
 // Question 3
 // Refer: lesson 3
