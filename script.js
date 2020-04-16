@@ -39,6 +39,9 @@ function logGames(json) {
 // Replace the word cats with the word giraffes in the following sentence:
 
 // These cats are outrageous.
+const modifiedString = "These cats are outrageous.".replace("cats", "giraffes");
+console.log(modifiedString);
+// I could also put the original string in a variable and use the replace method on that variable.
 
 // Question 4
 // Refer: lesson 3
@@ -51,6 +54,22 @@ function logGames(json) {
 // If there is a userID parameter and its value is 10 or greater, redirect to second.html.
 
 // https://my.site.com?userId=7
+
+const queryString = "?userId=7";
+const params = new URLSearchParams(queryString);
+console.log(params);
+
+let userId;
+
+if (params.has("userId")) {
+  userId = params.get("userId");
+}
+
+if (userId < 10) {
+  console.log("User ID is less than 10");
+}
+
+console.log(typeof userId);
 
 // Question 5
 // Refer: lesson 4
