@@ -8,19 +8,34 @@ const doSomething = (a, b) => a - b;
 
 // Question 2
 // Refer: lesson 2 / 4
-// Make a call to the URL below, pass the JSON it returns to a function and inside that function loop through the results and log each game's name.
+// Make a call to the URL below, pass the JSON it returns to a
+// function and inside that function loop through the results and log each game's name.
 
 // In the catch method of your code, redirect to error.html if there is an error.
 
 // https://api.rawg.io/api/games?genres=sports
 
-const url = "https://api.rawg.io/api/games?genres=sports";
+const url = 'https://api.rawg.io/api/games?genres=sports';
 
 fetch(url)
-    .then(function(response) {
-        console.log(response);
-    })
+	.then(function(response) {
+		return response.json();
+	})
+	.then(function(json) {
+		logGames(json);
+	})
+	.catch(function(error) {
+		console.log(error);
+	});
 
+function logGames(json) {
+	console.dir(json);
+	const games = json.results;
+
+	for (i = 0; i > games.lenght; i++) {
+		console.log(games);
+	}
+}
 // Question 3
 // Refer: lesson 3
 // Replace the word cats with the word giraffes in the following sentence:
