@@ -16,23 +16,23 @@ const doSomething = (a, b) => a - b;
 const url = "https://api.rawg.io/api/games?genres=sports";
 
 fetch(url)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (json) {
-    logGames(json);
-  })
-  .catch(function (error) {
-    console.log(error);
-    document.location.href = "error.html";
-  });
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (json) {
+        logGames(json);
+    })
+    .catch(function (error) {
+        console.log(error);
+        document.location.href = "error.html";
+    });
 
 function logGames(json) {
-  const games = json.results;
+    const games = json.results;
 
-  for (i = 0; i < games.length; i++) {
-    console.log(games[i].name);
-  }
+    for (i = 0; i < games.length; i++) {
+        console.log(games[i].name);
+    }
 }
 // Question 3
 // Refer: lesson 3
@@ -62,11 +62,20 @@ console.log(params);
 let userId;
 
 if (params.has("userId")) {
-  userId = params.get("userId");
+    userId = params.get("userId");
+    Number(userId);
+} else {
+    document.location.href = "third.html";
 }
 
 if (userId < 10) {
-  console.log("User ID is less than 10");
+    console.log("User ID is less than 10");
+    // document.location.href = "first.html";
+}
+
+if (userId >= 10) {
+    console.log("User ID is equal to or greater than 10");
+    // document.location.href = "second.html";
 }
 
 console.log(typeof userId);
