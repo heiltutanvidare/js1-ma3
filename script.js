@@ -47,7 +47,7 @@ const modifiedString = catString.replace("cats", "giraffes");
 // If there is a userID parameter and its value is 10 or greater, redirect to second.html.
 // https://my.site.com?userId=7
 
-/* const queryString = "?userId=7";
+const queryString = "?userId=7";
 const params = new URLSearchParams(queryString);
 
 if (params.has("userId")) {
@@ -60,7 +60,7 @@ if (params.has("userId")) {
     }
 } else {
     document.location.href = "third.html";
-} */
+}
 
 // Question 5
 // Write code that removes the button, and only the button, from its parent element in the HTML below:
@@ -97,9 +97,30 @@ cows.after(parrots);
 // Refer: lesson 4
 // Make a call to the URL below and pass the JSON it returns to a function.
 
-// Inside that function select the div from the HTML below and assign the rating property from the JSON object as it's text value.
+// Inside that function select the div from the HTML below and assign
+// the rating property from the JSON object as it's text value.
 
 // In the catch method, log the error that may be returned.
 
 // https://api.rawg.io/api/games/3801
 // <div class="rating"></div>
+
+const urltwo = "https://api.rawg.io/api/games/3801";
+
+// Here I have chosen to use a try catch block – for practice
+async function fetchGames() {
+    try {
+        const response = await fetch(urltwo);
+        const games = await response.json();
+        assignRating(games);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+fetchGames();
+
+function assignRating(games) {
+    const ratingContainer = document.querySelector(".rating");
+    ratingContainer.innerText = games.rating;
+}
