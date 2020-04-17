@@ -35,53 +35,34 @@ function logGames(json) {
     }
 }
 // Question 3
-// Refer: lesson 3
 // Replace the word cats with the word giraffes in the following sentence:
-
 // These cats are outrageous.
-const modifiedString = "These cats are outrageous.".replace("cats", "giraffes");
-console.log(modifiedString);
-// I could also put the original string in a variable and use the replace method on that variable.
+const catString = "These cats are outrageous.";
+const modifiedString = catString.replace("cats", "giraffes");
 
 // Question 4
-// Refer: lesson 3
 // Given the URL below, write code that checks if there is a userId parameter in the query string.
-
 // If there is no userID parameter, redirect the browser to third.html.
-
 // If there is a userID parameter and its value is less than 10, redirect to first.html.
-
 // If there is a userID parameter and its value is 10 or greater, redirect to second.html.
-
 // https://my.site.com?userId=7
 
-const queryString = "?userId=7";
+/* const queryString = "?userId=7";
 const params = new URLSearchParams(queryString);
-console.log(params);
-
-let userId;
 
 if (params.has("userId")) {
-    userId = params.get("userId");
-    Number(userId);
+    let userId = Number(params.get("userId"));
+
+    if (userId < 10) {
+        document.location.href = "first.html";
+    } else if (userId >= 10) {
+        document.location.href = "second.html";
+    }
 } else {
     document.location.href = "third.html";
-}
-
-if (userId < 10) {
-    console.log("User ID is less than 10");
-    // document.location.href = "first.html";
-}
-
-if (userId >= 10) {
-    console.log("User ID is equal to or greater than 10");
-    // document.location.href = "second.html";
-}
-
-console.log(typeof userId);
+} */
 
 // Question 5
-// Refer: lesson 4
 // Write code that removes the button, and only the button, from its parent element in the HTML below:
 
 // <div class="container">
@@ -89,16 +70,29 @@ console.log(typeof userId);
 //     <button class="btn">Click me</button>
 // </div>
 
+const container = document.querySelector(".container");
+const button = document.querySelector(".btn");
+
+container.removeChild(button);
+
 // Question 6
 // Refer: lesson 4
 // Create an li element with a text value of Parrots and a class of parrots.
-
 // Add the new item as the second item in the ul below (add it after Cows).
-
 // <ul class="animals">
 //     <li class="cows">Cows</li>
 //     <li class="elephants">Elephants</li>
 // </ul>
+
+const animalList = document.querySelector(".animals");
+const cows = document.querySelector(".cows");
+
+const parrots = document.createElement("li");
+parrots.innerText = "Parrots";
+parrots.className = "parrots";
+
+cows.after(parrots);
+
 // Question 7
 // Refer: lesson 4
 // Make a call to the URL below and pass the JSON it returns to a function.
